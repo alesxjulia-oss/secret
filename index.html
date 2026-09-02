@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>hi, bebe 😛</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f0e8;
+      color: #292624;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .page {
+      display: none;
+      width: 90%;
+      max-width: 700px;
+      text-align: center;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      background: #fffdf9;
+      padding: 60px 45px;
+      border-radius: 24px;
+      box-shadow: 0 18px 50px rgba(50, 40, 30, 0.10);
+      border: 1px solid #eee6dc;
+    }
+
+    .small {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #9a8b80;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-weight: normal;
+      font-size: 64px;
+      margin: 10px 0;
+    }
+
+    h2 {
+      font-family: Georgia, serif;
+      font-weight: normal;
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .question {
+      font-family: Georgia, serif;
+      font-size: 25px;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .hehe {
+      color: #9a8b80;
+      font-style: italic;
+      margin-bottom: 30px;
+    }
+
+    button {
+      border: none;
+      background: #292624;
+      color: white;
+      padding: 13px 28px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 14px;
+      margin: 5px;
+      transition: 0.25s;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .date {
+      font-family: Georgia, serif;
+      font-size: 25px;
+      font-style: italic;
+      color: #5f7890;
+      margin-bottom: 35px;
+    }
+
+    .stops {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .stop {
+      background: #f8f4ed;
+      border: 1px solid #e8ded2;
+      border-radius: 18px;
+      padding: 25px 15px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .stop:hover {
+      transform: translateY(-5px) rotate(-1deg);
+      background: #f2ece3;
+    }
+
+    .emoji {
+      font-size: 34px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .stop-title {
+      font-family: Georgia, serif;
+      font-size: 22px;
+    }
+
+    .sub {
+      color: #9a8b80;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .activity {
+      font-size: 65px;
+      margin: 15px;
+    }
+
+    .choice {
+      display: block;
+      width: 80%;
+      max-width: 400px;
+      margin: 12px auto;
+      background: #f8f4ed;
+      color: #292624;
+      border: 1px solid #e3d8cc;
+    }
+
+    .choice:hover {
+      background: #ebe2d7;
+    }
+
+    .chosen {
+      margin-top: 25px;
+      padding: 15px;
+      background: #eef2f4;
+      border-radius: 15px;
+      font-family: Georgia, serif;
+      font-style: italic;
+      display: none;
+    }
+
+    .back {
+      margin-top: 25px;
+      background: transparent;
+      color: #9a8b80;
+      border: 1px solid #d8cec3;
+    }
+
+    .tiny-note {
+      margin-top: 25px;
+      font-size: 12px;
+      color: #9a8b80;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- HOME -->
+
+  <section id="home" class="page active">
+
+    <div class="card">
+
+      <p class="small">may tanong ang gae</p>
+
+      <h1>hi, bebe 😛</h1>
+
+      <p class="question">
+        would you like to go on a date with me?
+      </p>
+
+      <p class="hehe">
+        wala kang choice
+      </p>
+
+      <button onclick="showPage('itinerary')">
+        yes
+      </button>
+
+      <button onclick="showPage('itinerary')">
+        YES
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ITINERARY -->
+
+  <section id="itinerary" class="page">
+
+    <div class="card">
+
+      <p class="small">our day!!!</p>
+
+      <h2>september 9</h2>
+
+      <p class="date">
+        SM Megamall
+      </p>
+
+      <div class="stops">
+
+        <div class="stop" onclick="showPage('eat')">
+          <span class="emoji">🍜</span>
+          <div class="stop-title">eat</div>
+          <div class="sub">first things first (or else... hangry aliah)</div>
+        </div>
+
+        <div class="stop" onclick="showPage('bake')">
+          <span class="emoji">🧁</span>
+          <div class="stop-title">bake</div>
+          <div class="sub">stressed spelled backwards is desserts</div>
+        </div>
+
+        <div class="stop" onclick="showPage('wander')">
+          <span class="emoji">🛍️</span>
+          <div class="stop-title">wander</div>
+          <div class="sub">ikot ikot by Sarah G.</div>
+        </div>
+
+        <div class="stop" onclick="showPage('photobooth')">
+          <span class="emoji">📸</span>
+          <div class="stop-title">photobooth</div>
+          <div class="sub">we need to document!!! for the kids</div>
+        </div>
+
+      </div>
+
+      <p class="tiny-note">
+        lol i love u :>
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- EAT -->
+
+  <section id="eat" class="page">
+
+    <div class="card">
+
+      <p class="small">stop no. 01</p>
+
+      <div class="activity">🍜</div>
+
+      <h2>eat</h2>
+
+      <p class="question">
+        where do you want to eat?
+      </p>
+
+      <button class="choice" onclick="chooseFood('Ooma')">
+        Ooma
+      </button>
+
+      <button class="choice" onclick="chooseFood('Din Tai Fung')">
+        Din Tai Fung
+      </button>
+
+      <div id="foodChoice" class="chosen"></div>
+
+      <button class="back" onclick="showPage('itinerary')">
+        ← back
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- BAKE -->
+
+  <section id="bake" class="page">
+
+    <div class="card">
+
+      <p class="small">stop no. 02</p>
+
+      <div class="activity">🧁</div>
+
+      <h2>bake</h2>
+
+      <p class="question">
+        what should we bake?
+      </p>
+
+      <button class="choice" onclick="chooseCake('blueberry cheesecake')">
+        blueberry cheesecake
+      </button>
+
+      <button class="choice" onclick="chooseCake('cake with a cute design')">
+         cake with a cute design
+      </button>
+
+      <div id="cakeChoice" class="chosen"></div>
+
+      <button class="back" onclick="showPage('itinerary')">
+        ← back
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- WANDER -->
+
+  <section id="wander" class="page">
+
+    <div class="card">
+
+      <p class="small">stop no. 03</p>
+
+      <div class="activity">🛍️</div>
+
+      <h2>wander</h2>
+
+      <p class="question">
+        give me ideas LOL
+      </p>
+
+      <p>
+        no agenda. window shopping!
+        <br>
+        bili kung may gusto (CHAR)
+      </p>
+
+      <p class="tiny-note">
+        sounds like a plan tbh
+      </p>
+
+      <button class="back" onclick="showPage('itinerary')">
+        ← back
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- PHOTOBOOTH -->
+
+  <section id="photobooth" class="page">
+
+    <div class="card">
+
+      <p class="small">stop no. 04</p>
+
+      <div class="activity">📸</div>
+
+      <h2>photobooth</h2>
+
+      <p class="question">
+        we should pose like we're sweet or smth like i'm hitting you
+      </p>
+
+      <p>
+       HUH WHO SAID THAT .
+      </p>
+
+      <button onclick="finish()">
+        okay my baby princess love so sweet ☺️
+      </button>
+
+      <br>
+
+      <button class="back" onclick="showPage('itinerary')">
+        ← back
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <script>
+
+    function showPage(page) {
+
+      document.querySelectorAll(".page").forEach(function(page) {
+        page.classList.remove("active");
+      });
+
+      document.getElementById(page).classList.add("active");
+
+      window.scrollTo(0, 0);
+
+    }
+
+
+    function chooseFood(food) {
+
+      let box = document.getElementById("foodChoice");
+
+      box.style.display = "block";
+
+      box.innerHTML = "ok fine";
+
+    }
+
+
+    function chooseCake(cake) {
+
+      let box = document.getElementById("cakeChoice");
+
+      box.style.display = "block";
+
+      box.innerHTML = "sige na nga";
+
+    }
+
+
+    function finish() {
+
+      alert("DATE CONFIRMED ♡ see u on september 9 hehe");
+
+    }
+
+  </script>
+
+</body>
+</html>
