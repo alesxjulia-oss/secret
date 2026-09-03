@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -191,12 +192,32 @@
       color: #9a8b80;
       font-style: italic;
     }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 40px 20px;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      h2 {
+        font-size: 32px;
+      }
+
+      .question {
+        font-size: 21px;
+      }
+
+      .stops {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
-
 <body>
-
 
   <!-- HOME -->
 
@@ -227,7 +248,6 @@
     </div>
 
   </section>
-
 
 
   <!-- ITINERARY -->
@@ -281,7 +301,6 @@
   </section>
 
 
-
   <!-- EAT -->
 
   <section id="eat" class="page">
@@ -317,7 +336,6 @@
   </section>
 
 
-
   <!-- BAKE -->
 
   <section id="bake" class="page">
@@ -339,7 +357,7 @@
       </button>
 
       <button class="choice" onclick="chooseCake('cake with a cute design')">
-         cake with a cute design
+        cake with a cute design
       </button>
 
       <div id="cakeChoice" class="chosen"></div>
@@ -351,7 +369,6 @@
     </div>
 
   </section>
-
 
 
   <!-- WANDER -->
@@ -389,7 +406,6 @@
   </section>
 
 
-
   <!-- PHOTOBOOTH -->
 
   <section id="photobooth" class="page">
@@ -407,7 +423,7 @@
       </p>
 
       <p>
-       HUH WHO SAID THAT .
+        HUH WHO SAID THAT .
       </p>
 
       <button onclick="finish()">
@@ -425,8 +441,55 @@
   </section>
 
 
+  <!-- CONFIRMED -->
+
+  <section id="confirmed" class="page">
+
+    <div class="card">
+
+      <p class="small">it's official!!!</p>
+
+      <div class="activity">💌</div>
+
+      <h2>DATE CONFIRMED ♡</h2>
+
+      <p class="question">
+        see u on september 9 hehe
+      </p>
+
+      <p class="hehe">
+        can't wait to see you 😁
+      </p>
+
+      <button class="back" onclick="showPage('itinerary')">
+        ← back to our day
+      </button>
+
+    </div>
+
+  </section>
+
 
   <script>
+
+    /* =========================================
+       GOOGLE APPS SCRIPT URL
+       ========================================= */
+
+    const scriptURL = "https://script.google.com/macros/s/AKfycby2VTav4lCnMyHaigbBa8HPOGx3iH7ge1HYVwBIMWAk6FKJH7Ksar27XnJFSDj3Rk5uLQ/exec";
+
+
+    /* =========================================
+       STORED ANSWERS
+       ========================================= */
+
+    let selectedFood = "";
+    let selectedCake = "";
+
+
+    /* =========================================
+       PAGE NAVIGATION
+       ========================================= */
 
     function showPage(page) {
 
@@ -441,7 +504,13 @@
     }
 
 
+    /* =========================================
+       FOOD CHOICE
+       ========================================= */
+
     function chooseFood(food) {
+
+      selectedFood = food;
 
       let box = document.getElementById("foodChoice");
 
@@ -449,10 +518,17 @@
 
       box.innerHTML = "ok fine";
 
+
     }
 
 
+    /* =========================================
+       CAKE CHOICE
+       ========================================= */
+
     function chooseCake(cake) {
+
+      selectedCake = cake;
 
       let box = document.getElementById("cakeChoice");
 
@@ -463,41 +539,49 @@
     }
 
 
+    /* =========================================
+       FINAL SUBMISSION
+       ========================================= */
+
     function finish() {
 
-  showPage('confirmed');
+      const data = {
 
-}
+        date: new Date().toLocaleString(),
 
+        food: selectedFood,
+
+        cake: selectedCake,
+
+        finished: "Yes"
+
+      };
+
+
+      fetch(scriptURL, {
+
+        method: "POST",
+
+        body: JSON.stringify(data)
+
+      })
+      .then(function() {
+
+        showPage("confirmed");
+
+      })
+      .catch(function(error) {
+
+        console.error("Error:", error);
+
+        showPage("confirmed");
+
+      });
+
+    }
 
   </script>
-<!-- CONFIRMED -->
 
-<section id="confirmed" class="page">
-
-  <div class="card">
-
-    <p class="small">it's official!!!</p>
-
-    <div class="activity">💌</div>
-
-    <h2>DATE CONFIRMED ♡</h2>
-
-    <p class="question">
-      see u on september 9 hehe
-    </p>
-
-    <p class="hehe">
-      can't wait to see you 😁
-    </p>
-
-    <button class="back" onclick="showPage('itinerary')">
-      ← back to our day
-    </button>
-
-  </div>
-
-</section>
-  
 </body>
 </html>
+```
