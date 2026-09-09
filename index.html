@@ -391,9 +391,9 @@
       </p>
 
       <p>
-        no agenda 
+        no agenda. window shopping!
         <br>
-        teehee
+        bili kung may gusto (CHAR)
       </p>
 
       <p class="tiny-note">
@@ -422,11 +422,11 @@
       <h2>photobooth</h2>
 
       <p class="question">
-        we should pose like we're sweet 
+        we should pose like we're sweet or smth like i'm hitting you
       </p>
 
       <p>
-        WOW! FIRST TIME!
+        HUH WHO SAID THAT .
       </p>
 
       <button onclick="finish()">
@@ -475,24 +475,10 @@
 
   <script>
 
-    /* =========================================
-       GOOGLE APPS SCRIPT URL
-       ========================================= */
-
     const scriptURL = "https://script.google.com/macros/s/AKfycbwiptxuxfkVFrEbRtkD7I84g3PxEe0qEyRgNKGzUtxu0SJ-6Lz6FR9CINotej2QllV0rg/exec";
-
-
-    /* =========================================
-       STORED ANSWERS
-       ========================================= */
 
     let selectedFood = "";
     let selectedCake = "";
-
-
-    /* =========================================
-       PAGE NAVIGATION
-       ========================================= */
 
     function showPage(page) {
 
@@ -503,13 +489,7 @@
       document.getElementById(page).classList.add("active");
 
       window.scrollTo(0, 0);
-
     }
-
-
-    /* =========================================
-       FOOD CHOICE
-       ========================================= */
 
     function chooseFood(food) {
 
@@ -520,13 +500,7 @@
       box.style.display = "block";
 
       box.innerHTML = "ok fine";
-
     }
-
-
-    /* =========================================
-       CAKE CHOICE
-       ========================================= */
 
     function chooseCake(cake) {
 
@@ -537,13 +511,7 @@
       box.style.display = "block";
 
       box.innerHTML = "sige na nga";
-
     }
-
-
-    /* =========================================
-       FINAL SUBMISSION
-       ========================================= */
 
     function finish() {
 
@@ -556,9 +524,7 @@
         cake: selectedCake,
 
         finished: "Yes"
-
       };
-
 
       fetch(scriptURL, {
 
